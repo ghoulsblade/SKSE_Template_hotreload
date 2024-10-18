@@ -1,5 +1,5 @@
 {
-    //"cmake.parallelJobs": 1, // try this if get not found errors when compiling .ixx with cmake parallel
+    //"cmake.parallelJobs": 1, // try this if you get not found errors when compiling .ixx with cmake parallel
 
     // enable searching commonlib but exclude most other build/ stuff
     "search.useIgnoreFiles": false,

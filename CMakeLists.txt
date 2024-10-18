@@ -59,7 +59,7 @@ endif()
 target_link_libraries(${PROJECT_NAME}_loader  PUBLIC my_compiler_flags)
 target_link_libraries(${PROJECT_NAME}         PUBLIC my_compiler_flags)
 
-# NOTE: if you sometimes get raceconditions when running cmake paralle:
+# NOTE: if you sometimes get raceconditions when running cmake parallel:
 # like plugin_main.ixx(23): error C3474: could not open output file 'plugin_main.ifc'
 # ctrl+, settings: "Cmake: Parallel Jobs" to 1  -> .vscode\settings.json : "cmake.parallelJobs": 1,
 
