@@ -3,40 +3,40 @@
 # SKSE GHotReload
 
 C++ SKSE plugin example for Skyrim
-it shows c++23 .ixx modules so you dont need to make a separate header file for every class
-example for "hot reload", see below
-also has some disabled example code how to load IBodyMorphInterface from skee/racemenu in the loader and pass it to the main
+- it shows c++23 .ixx modules so you dont need to make a separate header file for every class
+- example for "hot reload", see below
+- also has some disabled example code how to load IBodyMorphInterface from skee/racemenu in the loader and pass it to the main
 
 # What does it do?
 
 After running Skyrim, once at the Main Menu, press the `~` key to open the game console.
-Pressing F7 should print something from this plugin, like "OnLoadPlugin bReload=true"
+- Pressing F7 should print something from this plugin, like "OnLoadPlugin bReload=true"
 
-"Hot reload": Tab out, change myprint("OnLoadPlugin..") in plugin_main and recompile, tab back to skyrim and press F7
-you should now see it being reloaded and printing the changed text. Without having to restart skyrim.
-Useful when working on a big modlist to avoid load times / quick turnaround.
+- "Hot reload": Tab out, change myprint("OnLoadPlugin..") in plugin_main and recompile, tab back to skyrim and press F7
+- you should now see it being reloaded and printing the changed text. Without having to restart skyrim.
+- Useful when working on a big modlist to avoid load times / quick turnaround.
 
-It also shows how to get a ncp pointer by the crosshair event and storing it as formid + looking it up when you press F1.
+- It also shows how to get a TESNPC pointer by the crosshair event and storing it as formid + looking it up when you press F1.
 
-Logging to file too, see youtube skyrimscripting logging
+- Logging to file too, see youtube skyrimscripting logging
 
 # hot reload
 
 "hot reload" -> we can recompile + reload most of our code with a hotkey (F7) without restarting the game
 
-it split into two dlls :
-GHotReload_loader.dll = the "skse plugin", cannot be changed while the game is running
-sub/GHotReload.dll  = our main code, we can reload this with f7
+- it split into two dlls :
+- GHotReload_loader.dll = the "skse plugin", cannot be changed while the game is running
+- sub/GHotReload.dll  = our main code, we can reload this with f7
 
-when you press f7, the GHotReload.dll is copied to GHotReload_tmp.dll and loaded.
-OnLoadPlugin is called at the start.
-OnUnLoadPlugin is called when reloading so the old version can clean itself up.
+- when you press f7, the GHotReload.dll is copied to GHotReload_tmp.dll and loaded.
+- OnLoadPlugin is called at the start.
+- OnUnLoadPlugin is called when reloading so the old version can clean itself up.
 
-copy_dll.bat is a utility script that to overwrite the GHotReload_loader.dll , but does not throw a build error when it cannot, like when the game is currently running.
-to update GHotReload_loader.dll : close the game and rebuild (f7 in vscode), that will run copy_dll.bat
+- copy_dll.bat is a utility script that to overwrite the GHotReload_loader.dll , but does not throw a build error when it cannot, - like when the game is currently running.
+- to update GHotReload_loader.dll : close the game and rebuild (f7 in vscode), that will run copy_dll.bat
 
-some things like registering listeners can only be done in the loader at game start, so there are a few more functions that pass events like crosshair and hotkeys to the main.
-Also gregistry can be used to store some data between reloads.
+- some things like registering listeners can only be done in the loader at game start, so there are a few more functions that pass events like crosshair and hotkeys to the main.
+- Also gregistry can be used to store some data between reloads.
 
 # CommonLibSSE NG
 
