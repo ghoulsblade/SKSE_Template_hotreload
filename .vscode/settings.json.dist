@@ -1,0 +1,12 @@
+{
+    //"cmake.parallelJobs": 1, // try this if get not found errors when compiling .ixx with cmake parallel
+
+    // enable searching commonlib but exclude most other build/ stuff
+    "search.useIgnoreFiles": false,
+    "search.exclude": {
+        "**/build/*/.cmake/**": true,
+        "**/build/*/CMakeFiles/**": true,
+        "**/build/*/*.*": true,
+        "**/build/*/vcpkg_installed/*/include/**": false,
+    },
+}
